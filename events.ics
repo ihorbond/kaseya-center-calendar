@@ -1,0 +1,165 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+URL:https://www.kaseyacenter.com/calendar
+NAME:Kaseya Center Events
+X-WR-CALNAME:Kaseya Center Events
+X-WR-CALDESC:Events scraped from kaseyacenter.com/calendar
+TIMEZONE-ID:America/New_York
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:silvestre-dangond-and-juancho-de-la-espriella@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260307T200000
+DTEND;TZID=America/New_York:20260307T220000
+SUMMARY:Silvestre Dangond and Juancho de la Espriella
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/silvestr
+ e-dangond-and-juancho-de-la-espriella
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/silvestre-dangond
+ -and-juancho-de-la-espriella
+END:VEVENT
+BEGIN:VEVENT
+UID:detroit-pistons-vs-miami-heat-21@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260308T180000
+DTEND;TZID=America/New_York:20260308T200000
+SUMMARY:Detroit Pistons vs Miami HEAT
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/detroit-
+ pistons-vs-miami-heat-21
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/detroit-pistons-v
+ s-miami-heat-21
+END:VEVENT
+BEGIN:VEVENT
+UID:washington-wizards-vs-miami-heat-22@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260310T193000
+DTEND;TZID=America/New_York:20260310T213000
+SUMMARY:Washington Wizards vs Miami HEAT
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/washingt
+ on-wizards-vs-miami-heat-22
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/washington-wizard
+ s-vs-miami-heat-22
+END:VEVENT
+BEGIN:VEVENT
+UID:milwaukee-bucks-vs-miami-heat-18@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260312T193000
+DTEND;TZID=America/New_York:20260312T213000
+SUMMARY:Milwaukee Bucks vs Miami HEAT
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/milwauke
+ e-bucks-vs-miami-heat-18
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/milwaukee-bucks-v
+ s-miami-heat-18
+END:VEVENT
+BEGIN:VEVENT
+UID:lady-gaga-1@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260313T200000
+DTEND;TZID=America/New_York:20260313T220000
+SUMMARY:Lady Gaga
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/lady-gag
+ a-1
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/lady-gaga-1
+END:VEVENT
+BEGIN:VEVENT
+UID:orlando-magic-vs-miami-heat-24@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260314T200000
+DTEND;TZID=America/New_York:20260314T220000
+SUMMARY:Orlando Magic vs Miami HEAT
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/orlando-
+ magic-vs-miami-heat-24
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/orlando-magic-vs-
+ miami-heat-24
+END:VEVENT
+BEGIN:VEVENT
+UID:los-angeles-lakers-vs-miami-heat-8@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260319T200000
+DTEND;TZID=America/New_York:20260319T220000
+SUMMARY:Los Angeles Lakers vs Miami HEAT
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/los-ange
+ les-lakers-vs-miami-heat-8
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/los-angeles-laker
+ s-vs-miami-heat-8
+END:VEVENT
+BEGIN:VEVENT
+UID:san-antonio-spurs-vs-miami-heat-15@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260323T190000
+DTEND;TZID=America/New_York:20260323T210000
+SUMMARY:San Antonio Spurs vs Miami HEAT
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/san-anto
+ nio-spurs-vs-miami-heat-15
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/san-antonio-spurs
+ -vs-miami-heat-15
+END:VEVENT
+BEGIN:VEVENT
+UID:philadelphia-76ers-vs-miami-heat-20@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260330T190000
+DTEND;TZID=America/New_York:20260330T210000
+SUMMARY:Philadelphia 76ers vs Miami HEAT
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/philadel
+ phia-76ers-vs-miami-heat-20
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/philadelphia-76er
+ s-vs-miami-heat-20
+END:VEVENT
+BEGIN:VEVENT
+UID:boston-celtics-vs-miami-heat-28@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260401T193000
+DTEND;TZID=America/New_York:20260401T213000
+SUMMARY:Boston Celtics vs Miami HEAT
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/boston-c
+ eltics-vs-miami-heat-28
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/boston-celtics-vs
+ -miami-heat-28
+END:VEVENT
+BEGIN:VEVENT
+UID:washington-wizards-vs-miami-heat-23@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260404T150000
+DTEND;TZID=America/New_York:20260404T170000
+SUMMARY:Washington Wizards vs Miami HEAT
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/washingt
+ on-wizards-vs-miami-heat-23
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/washington-wizard
+ s-vs-miami-heat-23
+END:VEVENT
+BEGIN:VEVENT
+UID:ufc-327@kaseyacenter.com
+SEQUENCE:0
+DTSTAMP:20260228T173333
+DTSTART;TZID=America/New_York:20260411T170000
+DTEND;TZID=America/New_York:20260411T190000
+SUMMARY:UFC 327
+LOCATION:Kaseya Center\, 601 Biscayne Blvd\, Miami\, FL 33132
+DESCRIPTION:More info: https://www.kaseyacenter.com/events/detail/ufc-327
+URL;VALUE=URI:https://www.kaseyacenter.com/events/detail/ufc-327
+END:VEVENT
+END:VCALENDAR
