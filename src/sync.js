@@ -2,17 +2,33 @@
 
 const fs = require('fs');
 const path = require('path');
-const { scrapeEvents } = require('./scraper');
+const { scrapeMonth } = require('./scraper');
 const { buildCalendar } = require('./ical');
 
 const ICS_PATH = path.join(__dirname, '..', 'events.ics');
 
+// If we're in the last week of the month, get ahead and scrape next month.
+// Otherwise resync the current month to catch any changes.
+function getTargetMonth() {
+  const today = new Date();
+  const day = today.getDate();
+
+  if (day >= 25) {
+    const next = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+    return { year: next.getFullYear(), month: next.getMonth() + 1 };
+  }
+  return { year: today.getFullYear(), month: today.getMonth() + 1 };
+}
+
 async function run() {
-  console.log(`[${new Date().toISOString()}] Scraping Kaseya Center events...`);
+  const { year, month } = getTargetMonth();
+  const label = new Date(year, month - 1, 1).toLocaleString('en-US', { month: 'long', year: 'numeric' });
+
+  console.log(`[${new Date().toISOString()}] Scraping Kaseya Center — target: ${label}`);
 
   let events;
   try {
-    events = await scrapeEvents();
+    events = await scrapeMonth(year, month);
   } catch (err) {
     console.error('Scrape failed:', err.message);
     process.exit(1);

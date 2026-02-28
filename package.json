@@ -9,8 +9,8 @@
     "debug": "node -e \"require('./src/scraper').scrapeEvents().then(e => { console.log('Found', e.length, 'events'); e.forEach(ev => console.log('-', ev.name, '|', ev.dateText, ev.timeText, '|', ev.url)); })\""
   },
   "dependencies": {
-    "axios": "^1.7.9",
     "cheerio": "^1.0.0",
-    "ical-generator": "^10.0.0"
+    "ical-generator": "^10.0.0",
+    "playwright": "^1.58.2"
   }
 }
