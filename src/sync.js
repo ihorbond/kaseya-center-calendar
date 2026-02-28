@@ -2,33 +2,30 @@
 
 const fs = require('fs');
 const path = require('path');
-const { scrapeMonth } = require('./scraper');
+const { scrapeMonths } = require('./scraper');
 const { buildCalendar } = require('./ical');
 
 const ICS_PATH = path.join(__dirname, '..', 'events.ics');
+const MONTHS_AHEAD = 6;
 
-// If we're in the last week of the month, get ahead and scrape next month.
-// Otherwise resync the current month to catch any changes.
-function getTargetMonth() {
+function getTargetMonths() {
   const today = new Date();
-  const day = today.getDate();
-
-  if (day >= 25) {
-    const next = new Date(today.getFullYear(), today.getMonth() + 1, 1);
-    return { year: next.getFullYear(), month: next.getMonth() + 1 };
+  const months = [];
+  for (let i = 0; i < MONTHS_AHEAD; i++) {
+    const d = new Date(today.getFullYear(), today.getMonth() + i, 1);
+    months.push({ year: d.getFullYear(), month: d.getMonth() + 1 });
   }
-  return { year: today.getFullYear(), month: today.getMonth() + 1 };
+  return months;
 }
 
 async function run() {
-  const { year, month } = getTargetMonth();
-  const label = new Date(year, month - 1, 1).toLocaleString('en-US', { month: 'long', year: 'numeric' });
-
-  console.log(`[${new Date().toISOString()}] Scraping Kaseya Center — target: ${label}`);
+  const months = getTargetMonths();
+  const range = `${fmt(months[0])} – ${fmt(months[months.length - 1])}`;
+  console.log(`[${new Date().toISOString()}] Scraping Kaseya Center: ${range}`);
 
   let events;
   try {
-    events = await scrapeMonth(year, month);
+    events = await scrapeMonths(months);
   } catch (err) {
     console.error('Scrape failed:', err.message);
     process.exit(1);
@@ -42,6 +39,10 @@ async function run() {
   const calendar = buildCalendar(events);
   fs.writeFileSync(ICS_PATH, calendar.toString(), 'utf8');
   console.log(`\nWrote ${ICS_PATH}`);
+}
+
+function fmt({ year, month }) {
+  return new Date(year, month - 1, 1).toLocaleString('en-US', { month: 'long', year: 'numeric' });
 }
 
 run().catch(err => {

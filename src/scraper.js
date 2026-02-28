@@ -4,7 +4,6 @@ const { chromium } = require('playwright');
 const cheerio = require('cheerio');
 
 const BASE_URL = 'https://www.kaseyacenter.com';
-
 const NEXT_BUTTON = '.cal-next';
 const MONTH_LABEL = '.month_name';
 
@@ -13,7 +12,6 @@ const MONTH_NAMES = [
   'july','august','september','october','november','december',
 ];
 
-// Reads the month/year label → { month: 1-12, year }
 async function getDisplayedMonth(page) {
   const text = await page.locator(MONTH_LABEL).textContent({ timeout: 5000 });
   const match = text.match(
@@ -38,7 +36,7 @@ function parseEvents($) {
 
     const slug = href.replace(/^.*\/events\/detail\//, '').replace(/\/$/, '');
     const rawDate = $el.find('.m-date__singleDate').text().trim();
-    const dateText = rawDate.replace(/^[^|]+\|\s*/, '').trim(); // strip "Saturday | "
+    const dateText = rawDate.replace(/^[^|]+\|\s*/, '').trim();
     const timeText = $el.find('.m-eventItem__start').text().trim();
 
     let startISO = null;
@@ -53,29 +51,43 @@ function parseEvents($) {
   return events;
 }
 
-async function scrapeMonth(targetYear, targetMonth) {
+// Scrape multiple months in a single browser session.
+// months: array of { year, month } in ascending order.
+async function scrapeMonths(months) {
   const browser = await chromium.launch({ headless: true });
   try {
     const page = await browser.newPage();
     await page.goto(`${BASE_URL}/calendar`, { waitUntil: 'networkidle', timeout: 30000 });
 
-    // Navigate forward until we reach the target month (never go back)
-    for (let i = 0; i < 12; i++) {
-      const current = await getDisplayedMonth(page);
-      if (!current) break;
-      if (current.year === targetYear && current.month === targetMonth) break;
-      // Stop if we've overshot
-      if (current.year > targetYear || (current.year === targetYear && current.month > targetMonth)) break;
+    const allEvents = [];
+    const seenSlugs = new Set();
 
-      await page.locator(NEXT_BUTTON).click();
-      await page.waitForTimeout(800); // allow calendar to re-render
+    for (const { year, month } of months) {
+      // Navigate forward until we reach the target month
+      for (let i = 0; i < 12; i++) {
+        const current = await getDisplayedMonth(page);
+        if (!current) break;
+        if (current.year === year && current.month === month) break;
+        if (current.year > year || (current.year === year && current.month > month)) break;
+        await page.locator(NEXT_BUTTON).click();
+        await page.waitForTimeout(800);
+      }
+
+      const events = parseEvents(cheerio.load(await page.content()));
+
+      // Deduplicate across months (events near month boundaries appear on both views)
+      for (const event of events) {
+        if (!seenSlugs.has(event.slug)) {
+          seenSlugs.add(event.slug);
+          allEvents.push(event);
+        }
+      }
     }
 
-    const html = await page.content();
-    return parseEvents(cheerio.load(html));
+    return allEvents;
   } finally {
     await browser.close();
   }
 }
 
-module.exports = { scrapeMonth };
+module.exports = { scrapeMonths };
